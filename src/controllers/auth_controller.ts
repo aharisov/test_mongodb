@@ -19,9 +19,10 @@ export function authSignUp(req: Request, res: Response): void {
     const result: Promise<any> = getUserByEmail(email);
 
     result.then(function(user: any){
+        // console.log(user);
         
         // if user found return error
-        if (!user) {
+        if (user) {
             
             res.status(409).json({"error": "User with such email exists"});
 
